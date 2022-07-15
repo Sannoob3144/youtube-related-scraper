@@ -15,6 +15,7 @@ export interface IYoutubeInitialData {
       endScreen?: {
         watchNextEndScreenRenderer?: {
           results?: IRawRelatedVideo[];
+          trackingParams?: string;
         };
       };
     };

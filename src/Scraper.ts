@@ -8,6 +8,8 @@ import { AbortController } from "abort-controller";
 import http from "node:http";
 import https from "node:https";
 
+const USER_AGENT =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" as const;
 const DEFAULT_TIMEOUT = 10000 as const;
 export interface ScraperOptions {
   log?: ILoggerLike;
@@ -38,6 +40,9 @@ export class Scraper {
     const abortController: AbortController = new AbortController();
     const fetchOptions: RequestInit = {
       signal: abortController.signal,
+      headers: {
+        "User-Agent": USER_AGENT,
+      },
     };
     const timeout: NodeJS.Timeout = setTimeout(() => {
       abortController.abort();

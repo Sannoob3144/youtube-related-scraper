@@ -5,7 +5,6 @@ import {
   IRawRelatedVideo,
 } from "./types/IYoutubeInitialData";
 import { IRelatedVideo } from "./types/IRelatedVideo";
-
 export class YoutubeParser {
   /**
    * Extract ytInitialData from youtube video html
